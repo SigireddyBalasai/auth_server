@@ -1,0 +1,21 @@
+{
+  "name": "auth_server",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "typecheck": "bun check",
+    "dev": "bun index.ts",
+    "generate-client": "curl -fsS http://localhost:3000/api/auth/open-api/generate-schema -o /tmp/better-auth-openapi.json && rm -rf ../better_auth_client/better_auth_client && apigenie-generator client python /tmp/better-auth-openapi.json -o ../better_auth_client"
+  },
+  "devDependencies": {
+    "@mykulyak/api-genie": "^0.12.0",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "dependencies": {
+    "better-auth": "^1.7.26"
+  }
+}
